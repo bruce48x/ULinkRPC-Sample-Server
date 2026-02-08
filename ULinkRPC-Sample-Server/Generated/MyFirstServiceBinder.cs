@@ -12,8 +12,8 @@ namespace Shared.Interfaces.Server.Generated
         {
             server.Register(ServiceId, 1, async (req, ct) =>
             {
-                var arg = server.Serializer.Deserialize<int>(req.Payload.AsSpan())!;
-                var resp = await impl.SumAsync(arg);
+                var (arg1, arg2) = server.Serializer.Deserialize<(int, int)>(req.Payload.AsSpan())!;
+                var resp = await impl.SumAsync(arg1, arg2);
                 return new RpcResponseEnvelope { RequestId = req.RequestId, Status = RpcStatus.Ok, Payload = server.Serializer.Serialize(resp) };
             });
 
