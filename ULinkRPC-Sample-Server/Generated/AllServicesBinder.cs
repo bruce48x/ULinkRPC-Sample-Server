@@ -1,4 +1,4 @@
-﻿using Game.Rpc.Contracts;
+﻿using Shared.Interfaces;
 using ULinkRPC.Runtime;
 
 namespace Shared.Interfaces.Server.Generated

@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
-using RpcCall.Server.Generated;
-using RpcCall.Server.Services;
+using Shared.Interfaces.Server.Generated;
+using Server.Services;
 using ULinkRPC.Runtime;
 
 const int defaultTcpPort = 20000;
@@ -65,7 +65,7 @@ async Task RunConnectionAsync(ITransport transport, string remote, CancellationT
     {
         server = new RpcServer(transport);
 
-        AllServicesBinder.BindAll(server, new PlayerService());
+        AllServicesBinder.BindAll(server, new MyFirstService());
         await server.StartAsync(hostCt).ConfigureAwait(false);
         await server.WaitForCompletionAsync().ConfigureAwait(false);
     }
