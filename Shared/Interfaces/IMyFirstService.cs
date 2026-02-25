@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using ULinkRPC.Runtime;
+using ULinkRPC.Core;
 
 namespace Shared.Interfaces
 {

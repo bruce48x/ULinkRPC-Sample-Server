@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using Shared.Interfaces;
-using ULinkRPC.Runtime;
+using ULinkRPC.Core;
+using ULinkRPC.Server;
 
 namespace Shared.Interfaces.Server.Generated
 {

@@ -1,8 +1,11 @@
-﻿using System.Net;
+using System.Net;
 using System.Net.Sockets;
 using Shared.Interfaces.Server.Generated;
 using Server.Services;
-using ULinkRPC.Runtime;
+using ULinkRPC.Core;
+using ULinkRPC.Server;
+using ULinkRPC.Serializer.MemoryPack;
+using ULinkRPC.Transport.Tcp;
 
 const int defaultTcpPort = 20000;
 var tcpPort = defaultTcpPort;
@@ -63,7 +66,8 @@ async Task RunConnectionAsync(ITransport transport, string remote, CancellationT
 
     try
     {
-        server = new RpcServer(transport);
+        var serializer = new MemoryPackRpcSerializer();
+        server = new RpcServer(transport, serializer);
 
         AllServicesBinder.BindAll(server, new MyFirstService());
         await server.StartAsync(hostCt).ConfigureAwait(false);
