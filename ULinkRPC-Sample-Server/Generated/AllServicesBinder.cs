@@ -1,4 +1,4 @@
-using Shared.Interfaces;
+﻿using Shared.Interfaces;
 using ULinkRPC.Server;
 
 namespace Shared.Interfaces.Server.Generated

@@ -4,10 +4,16 @@ namespace Server.Services;
 
 public class MyFirstService : IMyFirstService
 {
-    // `UnaryResult<T>` allows the method to be treated as `async` method.
-    public ValueTask<int> SumAsync(int x, int y)
+    private readonly IFirserServiceCallback _callback;
+
+    public MyFirstService(IFirserServiceCallback callback)
     {
-        Console.WriteLine($"Received:{x}, {y}");
-        return new ValueTask<int>(x + y);
+        _callback = callback;
+    }
+    
+    public ValueTask<LoginReply> LoginAsync(LoginRequest req)
+    {
+        _callback.OnNotify(new List<PlayerPosition>());
+        return new ValueTask<LoginReply>();
     }
 }

@@ -69,7 +69,8 @@ async Task RunConnectionAsync(ITransport transport, string remote, CancellationT
         var serializer = new MemoryPackRpcSerializer();
         server = new RpcServer(transport, serializer);
 
-        AllServicesBinder.BindAll(server, new MyFirstService());
+        // AllServicesBinder.BindAll(server, new MyFirstService());
+        MyFirstServiceBinder.Bind(server, callback => new MyFirstService(callback));
         await server.StartAsync(hostCt).ConfigureAwait(false);
         await server.WaitForCompletionAsync().ConfigureAwait(false);
     }

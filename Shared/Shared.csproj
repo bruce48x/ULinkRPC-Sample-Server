@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ULinkRPC.Core" Version="0.3.0" />
+    <PackageReference Include="MemoryPack.UnityShims" Version="1.21.4" />
+    <PackageReference Include="ULinkRPC.Core" Version="0.4.0" />
+    <PackageReference Include="ULinkRPC.Serializer.MemoryPack" Version="0.4.0" />
   </ItemGroup>
 
 </Project>
