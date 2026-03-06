@@ -1,24 +1,27 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ULinkRPC.Core;
 using MemoryPack;
+using ULinkRPC.Core;
 using UnityEngine;
 
 namespace Shared.Interfaces
 {
     [RpcService(1)]
-    public interface IMyFirstService: IRpcService<IMyFirstService, IFirserServiceCallback>
+    public interface IPlayerService : IRpcService<IPlayerService, IPlayerServiceCallback>
     {
         [RpcMethod(1)]
         ValueTask<LoginReply> LoginAsync(LoginRequest req);
+        
+        [RpcMethod(2)]
+        ValueTask Move(MoveRequest req);
     }
-    
-    public interface IFirserServiceCallback
+
+    public interface IPlayerServiceCallback
     {
         [RpcMethod(1)]
-        void OnNotify(List<PlayerPosition> playerPositions);
+        void OnMove(List<PlayerPosition> playerPositions);
     }
-    
+
     [MemoryPackable]
     public partial class LoginRequest
     {
@@ -36,7 +39,15 @@ namespace Shared.Interfaces
     [MemoryPackable]
     public partial class PlayerPosition
     {
-        string playerId;
-        Vector3 position;
+        public string PlayerId { get; set; } = "";
+        public Vector2 Position { get; set; }
+    }
+    
+    
+    [MemoryPackable]
+    public partial class MoveRequest
+    {
+        public string PlayerId { get; set; } = "";
+        public int Direction { get; set; }
     }
 }

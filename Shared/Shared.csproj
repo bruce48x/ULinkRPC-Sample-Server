@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <Nullable>enable</Nullable>
-    <LangVersion>9.0</LangVersion>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>9.0</LangVersion>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MemoryPack.UnityShims" Version="1.21.4" />
-    <PackageReference Include="ULinkRPC.Core" Version="0.4.0" />
-    <PackageReference Include="ULinkRPC.Serializer.MemoryPack" Version="0.4.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="MemoryPack.UnityShims" Version="1.21.4"/>
+        <PackageReference Include="ULinkRPC.Core" Version="0.4.0"/>
+        <PackageReference Include="ULinkRPC.Serializer.MemoryPack" Version="0.4.0"/>
+    </ItemGroup>
 
 </Project>

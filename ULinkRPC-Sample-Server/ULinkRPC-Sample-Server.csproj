@@ -10,8 +10,7 @@
 
     <ItemGroup>
         <ProjectReference Include="../Shared/Shared.csproj"/>
-        <PackageReference Include="ULinkRPC.Server" Version="0.3.0" />
-        <PackageReference Include="ULinkRPC.Transport.Tcp" Version="0.3.0" />
-        <PackageReference Include="ULinkRPC.Serializer.MemoryPack" Version="0.4.0" />
+        <PackageReference Include="ULinkRPC.Server" Version="0.4.0" />
+        <PackageReference Include="ULinkRPC.Transport.Tcp" Version="0.4.0" />
     </ItemGroup>
 </Project>

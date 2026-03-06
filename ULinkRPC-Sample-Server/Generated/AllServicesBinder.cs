@@ -5,9 +5,9 @@ namespace Shared.Interfaces.Server.Generated
 {
     public static class AllServicesBinder
     {
-        public static void BindAll(RpcServer server, IMyFirstService myFirstService)
+        public static void BindAll(RpcServer server, IPlayerService playerService)
         {
-            MyFirstServiceBinder.Bind(server, myFirstService);
+            PlayerServiceBinder.Bind(server, playerService);
         }
     }
 }

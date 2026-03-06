@@ -1,10 +1,10 @@
 using System.Net;
 using System.Net.Sockets;
-using Shared.Interfaces.Server.Generated;
 using Server.Services;
+using Shared.Interfaces.Server.Generated;
 using ULinkRPC.Core;
-using ULinkRPC.Server;
 using ULinkRPC.Serializer.MemoryPack;
+using ULinkRPC.Server;
 using ULinkRPC.Transport.Tcp;
 
 const int defaultTcpPort = 20000;
@@ -70,7 +70,7 @@ async Task RunConnectionAsync(ITransport transport, string remote, CancellationT
         server = new RpcServer(transport, serializer);
 
         // AllServicesBinder.BindAll(server, new MyFirstService());
-        MyFirstServiceBinder.Bind(server, callback => new MyFirstService(callback));
+        PlayerServiceBinder.Bind(server, callback => new PlayerService(callback));
         await server.StartAsync(hostCt).ConfigureAwait(false);
         await server.WaitForCompletionAsync().ConfigureAwait(false);
     }
@@ -92,4 +92,3 @@ async Task RunConnectionAsync(ITransport transport, string remote, CancellationT
 
     Console.WriteLine($"[{remote}] Disconnected.");
 }
-
