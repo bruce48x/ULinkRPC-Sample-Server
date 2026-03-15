@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace Shared.Interfaces
 {
-    [RpcService(1)]
-    public interface IPlayerService : IRpcService<IPlayerService, IPlayerServiceCallback>
+    [RpcService(1, Callback = typeof(IPlayerCallback))]
+    public interface IPlayerService
     {
         [RpcMethod(1)]
         ValueTask<LoginReply> LoginAsync(LoginRequest req);
@@ -16,9 +16,10 @@ namespace Shared.Interfaces
         ValueTask Move(MoveRequest req);
     }
 
-    public interface IPlayerServiceCallback
+    [RpcCallback(typeof(IPlayerService))]
+    public interface IPlayerCallback
     {
-        [RpcMethod(1)]
+        [RpcPush(1)]
         void OnMove(List<PlayerPosition> playerPositions);
     }
 

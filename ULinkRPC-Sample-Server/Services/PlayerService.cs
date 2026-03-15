@@ -7,9 +7,9 @@ namespace Server.Services;
 
 public class PlayerService : IPlayerService
 {
-    private readonly IPlayerServiceCallback _callback;
+    private readonly IPlayerCallback _callback;
 
-    public PlayerService(IPlayerServiceCallback callback)
+    public PlayerService(IPlayerCallback callback)
     {
         _callback = callback;
     }
